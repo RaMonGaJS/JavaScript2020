@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paella🍤</title>
+</head>
+<body>
+    <script>
+
+        const personas = parseInt(prompt("ingresa el num de personas que van a comer nuestra paella"));
+        const arroz = 0.5;
+        const racion = 4;
+        const gambas = 0.25;
+        const precioArroz = parseInt(prompt("ingresa el precio del kg de arroz"));
+        const precioGambas = parseInt(prompt("ingrese el precio del kg de gambas"));
+
+        let cantidadArroz = (personas * arroz)/ racion;
+        let cantidadGambas = (personas * gambas)/ racion;
+
+        if (personas > 0) {
+            costoArroz = cantidadArroz * precioArroz;
+            costoGambas = cantidadGambas * precioGambas;
+        }
+       
+            
+        document.write("Para " + personas + "  personas se necesitan " + cantidadArroz + " kg de arroz y " + cantidadGambas + " kg de gambas.")
+        document.write("El costo es de " + costoArroz + "$ de arroz y " + costoGambas + "$ de gambas. Total: "+ (costoArroz + costoGambas) + "$.")
+
+      
+    </script>
+</body>
+</html>
