@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Ensalada</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+    </head>
+    <body>
+        <!--3.	[Ensalada]
+            Escribir un script en el cual se ingresen 6 números enteros. Con estos se debe
+            calcular la  suma de los 3 primeros y el producto entre el tercero, el cuarto y el 5to y
+            sumarle el sexto
+        -->
+        <script>
+            const aNum = [];
+            let suma= 0;
+            let producto = 0;
+            let total = 0;
+
+            console.log("hola");
+
+            for (i=0; i<6; i++){
+                aNum[i] = parseInt(prompt("Ingrese un numero"));
+            }
+
+            suma = aNum[0] + aNum[1] + aNum[2]; //sumo los tres primeros
+            producto = aNum[2] * aNum[3] * aNum[4];//multiplico el tercero,cuarto y quinto
+            total = suma + producto + aNum[5];//sumo al resultado de la suma el resultdo del producto mas el sexto numero
+
+            document.write( "Suma: " + suma + "<br> Producto: " + producto + "<br> Total: "+ total );
+
+
+        </script>
+    
+    </body>
+</html>
