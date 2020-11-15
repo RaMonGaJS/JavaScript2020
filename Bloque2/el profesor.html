@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El profesor</title>
+</head>
+<body>
+    <script>
+        let nota1 = parseInt(prompt("Ingresa la primera nota"));
+        let nota2 = parseInt(prompt("Ingresa la segunda nota"));
+
+        var suma = nota1 + nota2;
+        var promedio = suma / 2;
+
+        document.write("La sumatoria entre tus 2 notas es "+suma);
+        document.write("<br>");
+        document.write("tu promedio es de "+promedio);
+        document.write("<br>");
+
+        if (nota1>nota2) {
+            let notaMaxima1= nota1;
+            document.write("tu maxima calificacion es "+notaMaxima1);
+        }
+        else {
+            let notaMaxima2 = nota2;
+            document.write("tu maxima calificacion es "+notaMaxima2);
+        }
+        
+
+    </script>
+</body>
+</html>

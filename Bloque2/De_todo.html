@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>De todo</title>
+  </head>
+  <body>
+    <script>
+
+      let j = parseInt(prompt("Ingresa el numero para la tabla de multiplicar"));  
+      function tablaMultiplicar(j) {
+        document.write("<h2>Tabla de multiplicar del " + j + "</h2>");
+
+        document.write("<ul>");
+        
+
+        for (i = 1; i <= 10; i++) {
+          document.write("<li>");
+          document.write(j + "x " + i + "= " + j * i);
+          document.write("</li>");
+        }
+
+        document.write("</ul>");
+      }
+
+      tablaMultiplicar(j);
+      
+      document.write("la suma del resultado de todas las multiplicaciones es: "+j * i);
+
+
+    </script>
+  </body>
+</html>
