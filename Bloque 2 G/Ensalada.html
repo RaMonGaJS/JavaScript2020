@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const numeros= [];
+        for (let i = 0; i < 6; i++) {
+        let numero = parseInt(prompt(`Ingrese número ${i + 1}`));
+        numeros.push(numero);
+      }
+      let total = numeros[0] + numeros[1] + numeros[2] + (numeros[2]*numeros[3]*numeros[4]) + numeros[5]
+      document.write (`la suma de los primeros 3 a los cuales les sume el producto del 3ro 4to y 5to más la suma del 6to da como resultado ${total}`)
+
+    </script>
+</body>
+</html>

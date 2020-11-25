@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const producto = prompt ("Nombre del producto");
+        const cantidad = parseInt(prompt ("cantidad"));
+        const precio = parseFloat(prompt ("precio unitario"));
+        let total= precio * cantidad;
+        document.write (`Gracias por comprar ${cantidad} de ${producto} <br> el precio a abonar es de $ ${total}`);
+    </script>
+</body>
+</html>
