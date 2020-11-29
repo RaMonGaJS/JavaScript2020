@@ -1,0 +1,21 @@
+#titulo{
+    font-size: 80px;
+}
+
+.inicial{
+    font-weight: 1000;
+}
+
+.btn{
+    
+   
+    align-self: center;
+    
+}
+
+.tablero>.btn{
+    border: solid 2px black;
+    width: 60px;
+    height: 60px;
+    margin: 8px;
+}
