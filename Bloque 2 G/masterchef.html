@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Participantes de MasterChef</h1>
+    <script>
+        const participantes = [];
+        const notas = [];
+        const NOTAS_ACEPTABLES = 6
+        const NOTAS_FINALISTAS = 8
+        const participanteAceptable = [];
+        const participanteFinalista = [];
+        const participanteMalo = [];
+        numeroParticipantes = parseInt(prompt ("Ingrese el número de participantes"));
+
+        for (let i=0; i < numeroParticipantes; i++){
+            participantes.push (prompt ("Ingrese el nombre del participante"));
+            notas.push (prompt(`Ingrese la nota de ${participantes}`));
+        document.write (`el participante ${i+1} se llama ${participantes[i]} y su nota es ${notas[i]} <br>`);
+
+        notas[i] >= NOTAS_ACEPTABLES && notas[i] < NOTAS_FINALISTAS
+        ? participanteAceptable.push(participantes[i])
+        : null
+        notas[i] >= NOTAS_FINALISTAS
+        ? participanteFinalista.push(participantes[i])
+        :null
+        notas [i] < NOTAS_ACEPTABLES
+        ? participanteMalo.push(participantes[i])
+        : null
+
+         };
+
+        document.write (`Los participantes aceptables son ${participanteAceptable.join(" - ")}, los participantes finalistas 
+        ${participanteFinalista.join(" - ")} y los que se están por ir son ${participanteMalo.join(" - ")}`);
+        const random = Math.round(Math.random () * participanteFinalista.length-1);
+        document.write (`<br>Un posible ganador es ${participanteFinalista[random]}`);
+
+    </script>
+</body>
+</html>
