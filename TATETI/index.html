@@ -15,12 +15,12 @@
               <h1 class="text-center mt-5" id="titulo"><span id="ta"> TA</span> - <span id="te"> TE</span> -<span id="ti"> TI</span> </h1>
               
               <div class="inicial mt-4 text-center">
-                <p class="inicial">Jugador 1:  
-                <input type="color" class="inicial" id="favcolor1" name="favcolor1" oninput="eligeColor(this)"> O clic en el color para elegir otro. 
+                <p >Jugador 1:  
+                <input type="color"  id="favcolor1" name="favcolor1" /> O clic en el color para elegir otro. 
                 </p>
                 
-                <p class="inicial mt-3 ">Jugador 2: 
-                <input type="color" id="favcolor2" name="favcolor2" oninput="eligeColor(this)"> O clic en el color para elegir otro.
+                <p  mt-3 ">Jugador 2: 
+                <input type="color" id="favcolor2" name="favcolor2" > O clic en el color para elegir otro.
                 </p>
                 <!--Inicia el juego-->
                 <button type="button" id="iniJuego" class="btn btn-info mt-4">Iniciar el juego! &#128525</button>
@@ -38,13 +38,22 @@
        
         <div class="container text-center mt-3">
           <div class="row justify-content-center">
-              <div class="col-3 tablero m-2">
+              <div class="col-sx-3 tablero m-2">
                   <button type="button" class="btn btn-light ficha" id="1"> </button>
                   <button type="button" class="btn btn-light ficha" id="2"> </button>
                   <button type="button" class="btn btn-light ficha" id="3"></button>
+              </div>
+          </div>
+          <div class="row justify-content-center">
+              <div class="col-sx-3 tablero m-2">
                   <button type="button" class="btn btn-light ficha" id="4"></button>
                   <button type="button" class="btn btn-light ficha" id="5"></button>
                   <button type="button" class="btn btn-light ficha" id="6"></button>
+              </div>
+          </div>
+                  
+          <div class="row justify-content-center">
+              <div class="col-sx-3 tablero m-2">
                   <button type="button" class="btn btn-light ficha" id="7"></button>
                   <button type="button" class="btn btn-light ficha" id="8"></button>
                   <button type="button" class="btn btn-light ficha" id="9"></button>
@@ -52,9 +61,10 @@
 
           </div>
         
-      
+          <!--Reiniciar el juego-->
+          <button type="button" id="reinicio" class="btn btn-outline-danger mt-4">Volver a empezar &#9842</button>
          
-      </div>
+        </div>
 
       
               

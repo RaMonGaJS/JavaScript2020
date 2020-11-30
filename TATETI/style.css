@@ -1,14 +1,17 @@
 #titulo{
-    font-size: 80px;
+    font-size: 4em;
 }
 
 .inicial{
     font-weight: 1000;
+    font-size: 1em;
 }
 
-.btn{
-    
-   
+#turno{
+    font-size: 1em;
+}
+
+.btn{ 
     align-self: center;
     
 }
@@ -18,4 +21,7 @@
     width: 60px;
     height: 60px;
     margin: 8px;
+    background-color: rgb(247, 244, 244);
+    color: white;
+    font-size: 2em;
 }
