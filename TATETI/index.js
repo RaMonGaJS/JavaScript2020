@@ -1,34 +1,57 @@
 let contador = 0;
+let ganador = false;
 
 const titulo = ["TA", "-", "TE", "-", "TI"];
 const tablero = document.getElementsByClassName("ficha");
-const ganadores = [
-        [0,1,2],
-        [3,4,5],
-        [6,7,8],
-        [0,3,6],
-        [1,4,7],
-        [2,5,8],
-        [0,4,8],
-        [2,4,6]
-];
-/*
-const comparar = (control) =>{
-        //ganador = false;
-        tablero[control[0]].innerHTML === tablero[control[1]].innerHTML && 
-        tablero[control[1]].innerHTML === tablero[control[2]].innerHTML &&
-        tablero[control[2]].innerHTML !== "" 
-        ? true : false;
+// const ganadores = [
+//         [0,1,2],
+//         [3,4,5],
+//         [6,7,8],
+//         [0,3,6],
+//         [1,4,7],
+//         [2,5,8],
+//         [0,4,8],
+//         [2,4,6]
+// ];
 
-        console.log("estoy comparando");
+
+const limpiar = () => {
+        location.reload();
+}
+
+
+
+const iniNuevo = () =>{
+        document.querySelector("#turno").innerHTML = "Iniciando nueva partida...";
+        setTimeout(() => {
+                limpiar();
+              }, 1000);
+}
+
+const empate = () => {
+       // document.querySelector("#turno").innerHTML = "Fue un Empate";
+        alert("Fue un Empate!!");
+        setTimeout(() => {
+                iniNuevo();  
+        }, 1000);
+}
+
+const mensajeGanador = () =>{
+        let jugador = "";
+        contador % 2 === 0 
+        ? jugador = "2 " + "&#9874;"
+        : jugador = "1 " + "&#9863;";
         
-       
-       
-
-}*/
+        document.querySelector("#turno").innerHTML = "Ganó el jugador...." + jugador;
+        
+        setTimeout(() => {
+                iniNuevo();  
+        }, 1000);
+        
+}
 
 const verificarGanador = () => {
-        let ganador = false;
+        
         let f1 = tablero[0].innerText;
         let f2 = tablero[1].innerText;
         let f3 = tablero[2].innerText;
@@ -42,36 +65,24 @@ const verificarGanador = () => {
         
         if((f1 === f2 && f2 === f3 && f3 !== "") || (f4 === f5 && f5 === f6 && f6 !== "") || (f7 === f8 && f8 === f9 && f9 !== "")){
                 ganador = true;
-                console.log("horizontal");
+                //console.log("horizontal");
+                mensajeGanador();
+                
         }else if((f1 === f4 && f4 === f7 && f7 !== "") || (f2 === f5 && f5 === f8 && f8 !== "") || (f3 === f6 && f6 === f9 && f9 !== "")){        
                 ganador = true;
-                console.log("vertical");
-        }else if((f1 === f5 && f5 === f9 && f9 !== "") || (f3 === f5 && f5 === f7 && f7 !== "") ){ 
-                  console.log("diagonal");
+                //console.log("vertical");
+                mensajeGanador();
+                
+        }else if((f1 === f5 && f5 === f9 && f9 !== "") || (f3 === f5 && f5 === f7 && f7 !== "")){ 
+                //console.log("diagonal");
                 ganador = true; 
-
-        }else if(contador === 9 && ganador==false){
-                document.querySelector("#turno").innerHTML = "Fue un Empate";   
-                alert("Fue un empate!!");
-        } 
-
-
-console.log(ganador);
-              
-
-        if(ganador){
-                alert(`Ganador: Jugador ${informarJugador()}`);
+                mensajeGanador();
+        }else if(contador == 9 && ganador == false){
+                empate();
         }
-
+             
 }
- 
 
-
-
-
-const limpiar = () => {
-        location.reload();
-}
 
 const armaColor = () =>{
         const digito = "0123456789ABCDEF";
@@ -80,7 +91,6 @@ const armaColor = () =>{
                 color = color + digito[Math.floor(Math.random() * 16)];  
         }
         return color;
-
 }
 
 const cambiarColor = () =>{
@@ -103,32 +113,26 @@ const iniJuego = () =>{
         document.querySelector("#iniJuego").hidden= 'true';
         document.querySelector(".container").style.visibility= 'visible';
         document.querySelector("#turno").style.visibility= 'visible';
-        console.log(contador);
+        //console.log(contador);
+        
 }
 
-const informarJugador = () =>{
-        let jugador = "";
-        contador % 2 === 0 
-        ? jugador = "2 " + "&#9874;"
-        : jugador = "1 " + "&#9863;";
-
-        return jugador;
-}
 
 const informarTurno = () => {
         //cambio el turno al otro jugador
-        (contador +1) % 2 === 0 
-        ? document.querySelector("#turno").innerHTML = "Turno Jugador 2" + " &#9874;"
-        : document.querySelector("#turno").innerHTML = "Turno Jugador 1" + " &#9863;";
+        if(ganador == false){
+                (contador +1) % 2 === 0 
+                 ? document.querySelector("#turno").innerHTML = "Turno Jugador 2" + " &#9874;"
+                : document.querySelector("#turno").innerHTML = "Turno Jugador 1" + " &#9863;";
+        }
 }
-
 
 //detecto el click y pinto segun el color del jugador
 const pintar = (id) =>{
         contador++; 
-        console.log(contador);
+        document.getElementById(id).style.color = 'white';
+        
         //segun el jugador pinto la casilla
-      
         if(contador % 2 === 0){
                 document.getElementById(id).style.backgroundColor = document.getElementById("favcolor2").value;
                 document.getElementById(id).innerHTML = "&#9874;";
@@ -137,21 +141,19 @@ const pintar = (id) =>{
                 document.getElementById(id).innerHTML = "&#9863;";
         }
 
-        verificarGanador() ? (alert(`Ganador: Jugador ${informarJugador}`)) : null;
-
-    
+       verificarGanador();
+                 
         //cambio el turno al otro jugador
         informarTurno();
 
         //deshabilito casillas ya usadas
         document.getElementById(id).disabled = 'true'; 
          
-        console.log(contador);
 }
 
 
 function start() {
-        console.log(contador);
+        
         setInterval(() => {
         cambiarColor(); // efecto de colores en el titulo
       }, 1000);
@@ -171,9 +173,8 @@ function start() {
       //escucho para pintar las jugadas
       for (let i = 0; i < tablero.length; i++){
         tablero[i].addEventListener('click', () => pintar(tablero[i].id));
+        tablero[i].style.color = 'gray';
       }
-         
-
 }
 
 window.onload = start;
